@@ -6,10 +6,10 @@ const db = ('./models');
 const app = express();
 
 //app.use(bodyParser.json());
-//const Book = db.book;
+const Book = db.book;
 
 
-//console.log(Book);
+console.log(Book);
 db.sequelize.sync({ force: true }).then(() => {
     console.log('tables dropped and recreated');
 }).catch(err => {
