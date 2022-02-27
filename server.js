@@ -1,11 +1,11 @@
 const express = require('express');
 const serverConfig =require('./configs/server.config');
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
-const db = ('./models');
+const db = require('./models');
 const app = express();
 
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 const Book = db.book;
 
 
@@ -15,7 +15,10 @@ db.sequelize.sync({ force: true }).then(() => {
 }).catch(err => {
     console.log("Error while initializing ategories table");
 })
+//route calling from route
 
+
+require('./routes/book.route')(app);
 
 app.listen(serverConfig.PORT, ()=>{
     console.log(`Application started on the port no : ${serverConfig.PORT}`);

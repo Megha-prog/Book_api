@@ -13,7 +13,7 @@ const Sequelize = require("sequelize");
     {
         host: config.HOST,
         dialect: config.dialect,
-        operatorsAliases: false,
+        //operatorsAliases: false,
         pool: {
             max: config.pool.max,
             min: config.pool.min,

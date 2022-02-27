@@ -2,7 +2,7 @@ module.exports= {
     HOST :"localhost",
     USER: "root",
     PASSWORD :"12345",
-    DB: "book_store",
+    DB: "store_book",
     dialect :"mysql",
     pool :{
         max :5 , // maximum connection at any time =5 at peak load

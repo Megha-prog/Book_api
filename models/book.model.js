@@ -14,10 +14,12 @@ module.exports = (sequelize, Sequelize) => {
         author: {
             type: Sequelize.STRING,
             allowNull: false
-        }, releasedate: {
-            type: Sequelize.INTEGER,
+        }, 
+        releasedate: {
+            type: Sequelize.STRING,
             allowNull: false
-        }, publisher: {
+        }, 
+        publisher: {
             type: Sequelize.STRING,
             allowNull: false
         },
