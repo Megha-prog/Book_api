@@ -40,6 +40,8 @@ exports.addBook = (req, res) => {
     )
 }
 
+
+// get all list of book 
 exports.getAllBooks = (req, res) => {
 
     //Supporting the query param
@@ -65,6 +67,70 @@ exports.getAllBooks = (req, res) => {
         })
     })
 }
+
+// //get book by title 
+exports.findAll = (req, res) => {
+    let bookTitle = req.query.title;
+    let promise;
+    if (bookTitle) {
+        promise = Book.findAll({
+            where: {
+                title: bookTitle
+
+            }
+        });
+    } else {
+        promise = Book.findAll();
+    }
+    promise.then(books => {
+        res.status(200).send(books);
+    }).catch(err => {
+        res.status(500).send({
+            message: "Some Internal error while fetching all the books"
+        })
+    })
+}
+
+
+//get publisher .....
+
+exports.findAll = (req, res) => {
+    let bookPublisher = req.query.publisher;
+    let promise;
+    if (bookPublisher) {
+        promise = Book.findAll({
+            where: {
+                title: bookPublisher
+
+            }
+        });
+    } else {
+        promise = Book.findAll();
+    }
+    promise.then(books => {
+        res.status(200).send(books);
+    }).catch(err => {
+        res.status(500).send({
+            message: "Some Internal error while fetching all the books"
+        })
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // get by book id 
 exports.GetBookById = (req, res) => {
@@ -123,7 +189,7 @@ exports.UpdateBookById = (req, res) => {
     })
 }
 // /**
-// //   * Delete an existing product based on the product name
+// //   * Delete an existing product based on the book title
 // //   */
 exports.DeleteBookById = (req, res) => {
     const book = {
@@ -151,4 +217,7 @@ exports.DeleteBookById = (req, res) => {
         })
     })
 }
+
+
+
 
